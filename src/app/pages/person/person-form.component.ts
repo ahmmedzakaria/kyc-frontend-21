@@ -107,7 +107,7 @@ export class PersonFormComponent implements OnDestroy {
         }
 
         // Watch checkbox "sameAddress"
-        this.form.controls.sameAddress.valueChanges.subscribe((checked) => {
+        this.form.controls['sameAddress'].valueChanges.subscribe((checked) => {
             if (checked) {
                 this.form.patchValue({
                     permanentAddress: this.form.value.currentAddress,
@@ -138,12 +138,12 @@ export class PersonFormComponent implements OnDestroy {
         };
 
         if (controlName === 'currentLocationId') {
-            patchValue.currentLocationType = location?.gisCode || '';
+            patchValue['currentLocationType'] = location?.gisCode || '';
             this.currentLocationLabel = location?.detailLocation || '';
         }
 
         if (controlName === 'permanentLocationId') {
-            patchValue.permanentLocationType = location?.gisCode || '';
+            patchValue['permanentLocationType'] = location?.gisCode || '';
             this.permanentLocationLabel = location?.detailLocation || '';
         }
 

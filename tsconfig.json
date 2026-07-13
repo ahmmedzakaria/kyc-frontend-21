@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@app-core/*": ["src/app/core/*"],
+      "@nexacore/api-common": ["../frontend-libs-21/api-common/src/public-api.ts"],
+      "@nexacore/api-common/*": ["../frontend-libs-21/api-common/src/lib/*"],
+      "@nexacore/auth": ["../frontend-libs-21/auth/src/public-api.ts"],
+      "@nexacore/auth/*": ["../frontend-libs-21/auth/src/lib/*"],
+      "@nexacore/layout": ["../frontend-libs-21/layout/src/public-api.ts"],
+      "@nexacore/layout/*": ["../frontend-libs-21/layout/src/lib/*"],
+      "@nexacore/shared": ["../frontend-libs-21/shared/src/public-api.ts"],
+      "@nexacore/shared/*": ["../frontend-libs-21/shared/src/lib/*"]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
