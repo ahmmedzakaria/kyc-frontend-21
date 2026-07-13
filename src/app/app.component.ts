@@ -12,6 +12,8 @@ import {AuthService} from '@nexacore/auth';
 })
 export class AppComponent {
     constructor(public layoutService: LayoutService, private authService: AuthService) {
+        this.layoutService.registerLogoutHandler(() => this.authService.logout());
+
         const token = this.authService.getToken();
         if (token) {
             this.layoutService.setAuthenticatedLayout();
