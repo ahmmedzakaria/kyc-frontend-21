@@ -1,0 +1,130 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* small helper resets */
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f6f8fa;
+}
+
+/* full height layout helpers */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* sidebar */
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  background: #fff; /* primary */
+  color: #0d6efd;
+  transition: width .2s ease;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+  padding: 1rem 0.5rem;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #0d6efd;
+}
+
+.sidebar .nav-link {
+  color: #0d6efd;
+  padding: .6rem 1rem;
+  border-radius: 6px;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* collapsed sidebar on small screens */
+.sidebar.collapsed {
+  width: 70px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.sidebar .nav-link .label {
+  margin-left: .6rem;
+}
+
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  transition: margin-left .2s ease, width .2s ease;
+  padding: 1.25rem;
+}
+
+/* when sidebar collapsed */
+.main-content.sidebar-collapsed {
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* topbar */
+.topbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 .75rem;
+  background: #fff;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.brand-text {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+/* responsive: hide labels when collapsed or small screens */
+@media (max-width: 991.98px) {
+  .sidebar {
+    transform: translateX(-100%);
+    position: fixed;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.success-snackbar {
+  background-color: #2e7d32; // green
+  color: #fff;
+  font-weight: 500;
+}
+
+.error-snackbar {
+  background-color: #d32f2f; // red
+  color: #fff;
+  font-weight: 500;
+}

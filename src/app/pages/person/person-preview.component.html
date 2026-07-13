@@ -1,0 +1,176 @@
+<div class="container mt-4" *ngIf="person as p">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+        <div>
+            <h2 class="mb-1">Person Preview</h2>
+            <p class="text-muted mb-0">Read-only overview of the selected person record.</p>
+        </div>
+
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-secondary" routerLink="/person">
+                <i class="fa fa-arrow-left me-2"></i>Back
+            </a>
+            <a class="btn btn-primary" [routerLink]="['/person', p.id, 'edit']" [state]="{ person: p }">
+                <i class="fa fa-edit me-2"></i>Edit
+            </a>
+        </div>
+    </div>
+
+    <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+            <div class="row align-items-center g-4">
+                <div class="col-md-3 text-center">
+                    <app-image-preview
+                            [src]="photoUrl"
+                            alt="Person photo"
+                            title="Person Photo"
+                            [subtitle]="(p.firstName || '-') + ' ' + (p.lastName || '')"
+                            hint="Click photo to view full image"
+                            thumbnailClass="rounded-circle shadow-sm object-fit-cover"
+                            [width]="140"
+                            [height]="140"
+                            imageClass="img-fluid rounded-4 shadow-sm"
+                            [previewOnClick]="true"
+                            [disabled]="photoUrl === 'assets/default-avatar.svg'">
+                    </app-image-preview>
+                </div>
+                <div class="col-md-9">
+                    <h3 class="mb-1">{{ p.firstName || '-' }} {{ p.lastName || '' }}</h3>
+                    <div class="text-muted mb-3">{{ p.username || '-' }}</div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="small text-muted">Email</div>
+                            <div>{{ p.email || '-' }}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-muted">Mobile</div>
+                            <div>{{ p.mobileNumber || '-' }}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-muted">Gender</div>
+                            <div>{{ p.gender || '-' }}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="small text-muted">Date of Birth</div>
+                            <div>{{ p.dateOfBirth || '-' }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="border-bottom pb-2 mb-3">Basic Information</h5>
+                    <div class="mb-3">
+                        <div class="small text-muted">National ID</div>
+                        <div>{{ p.nationalId || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Blood Group</div>
+                        <div>{{ p.bloodGroup || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Email Verified</div>
+                        <div>{{ p.emailVerified ? 'Yes' : 'No' }}</div>
+                    </div>
+                    <div>
+                        <div class="small text-muted">Mobile Verified</div>
+                        <div>{{ p.mobileVerified ? 'Yes' : 'No' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="border-bottom pb-2 mb-3">Family Information</h5>
+                    <div class="mb-3">
+                        <div class="small text-muted">Father</div>
+                        <div>{{ p.fatherName || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Father Mobile</div>
+                        <div>{{ p.fatherMobileNumber || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Mother</div>
+                        <div>{{ p.motherName || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Mother Mobile</div>
+                        <div>{{ p.motherMobileNumber || '-' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="border-bottom pb-2 mb-3">Emergency Contact Information</h5>
+                    <div class="mb-3">
+                        <div class="small text-muted">Emergency Contact Person</div>
+                        <div>{{ p.emergencyContactPerson || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Emergency Contact</div>
+                        <div>{{ p.emergencyContactNumber || '-' }}</div>
+                    </div>
+                    <div>
+                        <div class="small text-muted">Relation</div>
+                        <div>{{ p.emergencyContactPersonRelation || '-' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="border-bottom pb-2 mb-3">Education Information</h5>
+                    <div class="mb-3">
+                        <div class="small text-muted">Level</div>
+                        <div>{{ p.educationLevel || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Institution</div>
+                        <div>{{ p.institutionName || '-' }}</div>
+                    </div>
+                    <div>
+                        <div class="small text-muted">Passing Year</div>
+                        <div>{{ p.passingYear || '-' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="border-bottom pb-2 mb-3">Address Information</h5>
+                    <div class="mb-3">
+                        <div class="small text-muted">Current Address</div>
+                        <div>{{ p.currentAddress || '-' }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Current Location</div>
+                        <div>{{ currentLocationLabel }}</div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="small text-muted">Permanent Address</div>
+                        <div>{{ p.permanentAddress || '-' }}</div>
+                    </div>
+                    <div>
+                        <div class="small text-muted">Permanent Location</div>
+                        <div>{{ permanentLocationLabel }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

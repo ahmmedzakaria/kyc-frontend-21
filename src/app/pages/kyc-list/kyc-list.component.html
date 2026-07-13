@@ -1,0 +1,36 @@
+<div class="container-fluid py-3">
+    <!-- Action Bar -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold mb-0">KYC Records</h2>
+        <button routerLink="/kyc/create" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-2"></i> Create New
+        </button>
+    </div>
+
+    <!-- Edit Section -->
+    <div *ngIf="editingKyc" class="card shadow-sm mb-4">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="fa-solid fa-pen-to-square me-2"></i> Edit KYC</h5>
+        </div>
+        <div class="card-body">
+            <app-kyc-form
+                    [kycData]="editingKyc"
+                    (saved)="onSaved($event)">
+            </app-kyc-form>
+        </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0"><i class="fa-solid fa-table me-2"></i> KYC List</h5>
+        </div>
+        <div class="card-body p-0">
+            <app-kyc-table
+                    [kycList]="kycList"
+                    (edit)="onEdit($event)"
+                    (delete)="onDelete($event)">
+            </app-kyc-table>
+        </div>
+    </div>
+</div>

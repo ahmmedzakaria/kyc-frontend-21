@@ -1,0 +1,17 @@
+.profile-container {
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid #0d6efd;
+    transition: all 0.2s ease;
+  }
+
+  .profile-photo:hover {
+    transform: scale(1.05);
+  }
+
+  .photo-wrapper {
+    position: relative;
+  }
+}

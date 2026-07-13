@@ -1,0 +1,205 @@
+<div class="container mt-4">
+    <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+        <div>
+            <h2 class="mb-1">All Component Demo</h2>
+            <p class="text-muted mb-0">Centralized showcase for the shared UI components used across the app.</p>
+        </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <h3 class="mb-4">Form Example</h3>
+
+        <app-textbox
+                formControlName="username"
+                label="Username"
+                icon="fa-solid fa-user"
+                [minLength]="3"
+                [noSpecialChars]="true"
+                [floating]="true">
+        </app-textbox>
+
+        <app-textbox
+                formControlName="email"
+                label="Email Address"
+                icon="fa-solid fa-envelope"
+                type="email"
+                [required]="true"
+                [floating]="true">
+        </app-textbox>
+
+        <app-password-group
+                formControlName="password"
+                label="Password"
+                confirmLabel="Confirm Password"
+                [floating]="true"
+                [required]="true">
+        </app-password-group>
+
+        <app-textbox
+                formControlName="mobile"
+                label="Mobile Number"
+                icon="fa-solid fa-phone"
+                type="tel"
+                [onlyNumber]="true"
+                [minLength]="10"
+                [maxLength]="11"
+                [floating]="true">
+        </app-textbox>
+
+        <app-date-picker
+                formControlName="dateOfBirth"
+                label="Date of Birth"
+                [rangeMode]="false"
+                [monthsToShow]="1"
+                [disableFuture]="true">
+        </app-date-picker>
+
+        <app-date-picker
+                formControlName="travelPeriod"
+                label="Travel Period"
+                [rangeMode]="true"
+                [monthsToShow]="2"
+                [disablePast]="true">
+        </app-date-picker>
+
+        <app-dropdown
+                formControlName="country"
+                label="Country"
+                [options]="countries"
+                [searchable]="true"
+                placeholder="Select your country"
+                [required]="true"
+                helpText="Choose your country of residence.">
+        </app-dropdown>
+
+        <app-smart-dropdown
+                label="Gender"
+                mode="static"
+                [searchable]="true"
+                placeholder="Select your country"
+                [options]="[
+                    { label: 'Male', value: 'M' },
+                    { label: 'Female', value: 'F' }
+                ]"
+                formControlName="genderDropDown">
+        </app-smart-dropdown>
+
+        <app-smart-dropdown
+                label="District"
+                mode="api-simple"
+                apiUrl="/api/locations/search"
+                [requestBody]="{ searchText: '', page: 0, size: 10, source: 'NEXACORE_APP' }"
+                formControlName="district">
+        </app-smart-dropdown>
+
+        <app-smart-dropdown
+                label="Village"
+                mode="api-scroll"
+                apiUrl="/api/locations/search"
+                [requestBody]="{ searchText: '', page: 0, size: 10, source: 'NEXACORE_APP' }"
+                [pageSize]="20"
+                formControlName="village">
+        </app-smart-dropdown>
+
+        <app-radio-group
+                formControlName="gender"
+                label="Gender"
+                [options]="[
+                    { label: 'Male', value: 'M' },
+                    { label: 'Female', value: 'F' },
+                    { label: 'Other', value: 'O' }
+                ]"
+                orientation="horizontal"
+                [required]="true">
+        </app-radio-group>
+
+        <h3>Checkbox and toggle Example</h3>
+        <app-checkbox
+                formControlName="agreeTerms"
+                label="Accept Terms & Conditions"
+                description="You must agree before submitting."
+                variant="default"
+                [required]="true">
+        </app-checkbox>
+
+        <app-checkbox
+                formControlName="notifications"
+                label="Enable Notifications"
+                variant="switch"
+                helpText="Get important updates instantly.">
+        </app-checkbox>
+
+        <app-checkbox
+                formControlName="marketing"
+                label="Join Marketing List"
+                description="Receive product news and offers."
+                variant="card">
+        </app-checkbox>
+
+        <h3>Card Example</h3>
+        <app-card-selector
+                formControlName="plan"
+                label="Choose Your Plan"
+                [options]="plans"
+                [columns]="3"
+                [responsive]="true"
+                [required]="true"
+                helpText="Use arrow keys or click to select your preferred plan.">
+        </app-card-selector>
+
+        <h3>Textarea Example</h3>
+        <app-textarea
+                formControlName="notes"
+                label="Remarks"
+                placeholder="Enter your remarks..."
+                [maxLength]="250"
+                [autoResize]="true"
+                helpText="Please provide details about your request."
+                [required]="true">
+        </app-textarea>
+
+        <h3>File upload example</h3>
+        <app-file-upload
+                formControlName="photo"
+                label="Upload Documents"
+                accept="*.png"
+                [multiple]="true"
+                [maxSizeMB]="5"
+                uploadUrl="/api/upload">
+        </app-file-upload>
+
+        <app-button label="Register" icon="fa-solid fa-user-plus" variant="primary" (clicked)="submit()"></app-button>
+    </form>
+
+    <div class="mt-4">
+        <h3 class="mb-4">Button Example</h3>
+
+        <app-button
+                label="Save"
+                icon="fa-solid fa-save">
+        </app-button>
+
+        <app-button
+                label="Delete"
+                icon="fa fa-trash"
+                variant="danger"
+                [loading]="false">
+        </app-button>
+
+        <app-button
+                label="Loading..."
+                variant="success"
+                [outline]="true"
+                size="sm"
+                [loading]="true">
+        </app-button>
+
+        <app-button
+                label="Submit Form"
+                icon="fa-solid fa-check"
+                variant="primary"
+                size="lg"
+                [block]="true">
+        </app-button>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="dropdown-container">
+    <div class="search-wrapper">
+        <input
+                type="text"
+                [(ngModel)]="searchTerm"
+                (input)="onSearch(searchTerm)"
+                (keydown)="handleKeyDown($event)"
+                (focus)="isDropdownOpen = true"
+                [placeholder]="placeholder"
+                class="search-input"
+        />
+        <button *ngIf="selectedLocation" class="clear-btn" (click)="clearSelection()">✕</button>
+    </div>
+
+    <div
+        #dropdownList
+        class="dropdown-list"
+        *ngIf="isDropdownOpen"
+        (scroll)="onScroll($event)"
+    >
+        <div *ngIf="isLoading" class="loading">Loading...</div>
+
+        <div
+                *ngFor="let loc of locations; let i = index"
+                class="dropdown-item"
+                [class.highlighted]="i === highlightedIndex"
+                (click)="selectLocation(loc)"
+                [innerHTML]="highlightMatch(loc.detailLocation)"
+        ></div>
+
+        <div *ngIf="!isLoading && locations.length === 0" class="no-results">
+            No results found
+        </div>
+    </div>
+</div>

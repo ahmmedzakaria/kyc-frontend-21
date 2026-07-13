@@ -1,0 +1,31 @@
+export interface Person {
+    id?: number;
+    username?: string;
+    mobileNumber?: string;
+    email?: string;
+    firstName?: string;
+    lastName?: string;
+    dateOfBirth?: string;
+    gender?: string;
+    nationalId?: string;
+    bloodGroup?: string;
+    photoUrl?: string;
+    fatherName?: string;
+    fatherMobileNumber?: string;
+    motherName?: string;
+    motherMobileNumber?: string;
+    emergencyContactPerson?: string;
+    emergencyContactPersonRelation?: string;
+    emergencyContactNumber?: string;
+    educationLevel?: string;
+    institutionName?: string;
+    passingYear?: string;
+    currentLocationId?: string;
+    currentLocationType?: string;
+    currentAddress?: string;
+    permanentLocationId?: string;
+    permanentLocationType?: string;
+    permanentAddress?: string;
+    emailVerified?: boolean;
+    mobileVerified?: boolean;
+}
