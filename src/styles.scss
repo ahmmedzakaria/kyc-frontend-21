@@ -17,10 +17,10 @@ body {
 
 /* sidebar */
 .sidebar {
-  width: 250px;
-  min-width: 250px;
-  background: #fff; /* primary */
-  color: #0d6efd;
+  width: var(--layout-nav-expanded-width);
+  min-width: var(--layout-nav-expanded-width);
+  background: var(--layout-nav-bg);
+  color: var(--layout-nav-item-color);
   transition: width .2s ease;
   display: flex;
   flex-direction: column;
@@ -40,25 +40,25 @@ body {
   margin-bottom: 1rem;
   font-weight: 600;
   font-size: 1.1rem;
-  color: #0d6efd;
+  color: var(--layout-nav-color);
 }
 
 .sidebar .nav-link {
-  color: #0d6efd;
+  color: var(--layout-nav-item-color);
   padding: .6rem 1rem;
   border-radius: 6px;
 }
 
 .sidebar .nav-link:hover,
 .sidebar .nav-link.active {
-  background: #0d6efd;
-  color: #fff;
+  background: var(--layout-nav-item-active-bg);
+  color: var(--layout-nav-color);
 }
 
 /* collapsed sidebar on small screens */
 .sidebar.collapsed {
-  width: 70px;
-  min-width: 70px;
+  width: var(--layout-nav-width);
+  min-width: var(--layout-nav-width);
   text-align: center;
 }
 
@@ -67,28 +67,29 @@ body {
 }
 
 .main-content {
-  margin-left: 250px;
-  width: calc(100% - 250px);
+  margin-left: var(--layout-nav-expanded-width);
+  width: calc(100% - var(--layout-nav-expanded-width));
   transition: margin-left .2s ease, width .2s ease;
-  padding: 1.25rem;
+  padding: var(--layout-main-padding-block) var(--layout-main-padding-inline);
 }
 
 /* when sidebar collapsed */
 .main-content.sidebar-collapsed {
-  margin-left: 70px;
-  width: calc(100% - 70px);
+  margin-left: var(--layout-nav-width);
+  width: calc(100% - var(--layout-nav-width));
 }
 
 /* topbar */
 .topbar {
-  height: 56px;
+  height: var(--layout-header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0 .75rem;
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: var(--layout-header-bg);
+  color: var(--layout-header-color);
+  border-bottom: 1px solid var(--layout-header-border-color);
 }
 
 .brand-text {
